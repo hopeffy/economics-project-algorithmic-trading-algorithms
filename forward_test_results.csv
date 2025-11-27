@@ -1,0 +1,6 @@
+Symbol_TF,Test_Case,Strategy,Period,PnL%,Win_Rate%,Trades
+BTCUSDT_1d,TC1,RSI(30)+RSI(70),Forward (Oct-Nov 2025),4.44,100.0,1
+ETHUSDT_1d,TC1,RSI(25)+RSI(50),Forward (Oct-Nov 2025),0.0,0.0,0
+ETHUSDT_1h,TC2,Ichimoku+MarketStructure,Forward (Oct-Nov 2025),-2.86,55.88,68
+BTCUSDT_4h,TC2,Ichimoku+MarketStructure,Forward (Oct-Nov 2025),-7.27,37.5,8
+BTCUSDT_1d,TC1,BB_Reversal(None)+SuperTrend(None),Forward (Oct-Nov 2025),-12.9,0.0,1
