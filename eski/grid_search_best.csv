@@ -1,0 +1,2 @@
+Symbol_TF,Entry,Entry_Param,Exit,Exit_Param,PnL%,Win_Rate%,Trades
+ETHUSDT_1d,RSI,40.0,BB_Exit_B,0.85,431.04,94.44,18

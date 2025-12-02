@@ -1,0 +1,4 @@
+Symbol_TF,Strategy,Forward_PnL%,Forward_WinRate%,Forward_Trades,Market_Condition,Volatility%,Price_Change%,Historical_PnL%,PnL_Difference,Consistency
+BTCUSDT_1d,TC1_RSI_BB,-10.97,0.0,1,🔻 TRENDING DOWN,2.16,-18.25,242.57,-253.54,⚠️ INCONSISTENT
+ETHUSDT_1d,TC1_RSI_BB,-7.79,0.0,1,🔴 VOLATILE,3.3,-24.83,429.94,-437.73,⚠️ INCONSISTENT
+BTCUSDT_4h,TC1_RSI_BB,-3.42,25.0,4,🔻 TRENDING DOWN,1.07,-15.41,164.89,-168.31,⚠️ INCONSISTENT

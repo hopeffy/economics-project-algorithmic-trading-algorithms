@@ -1,0 +1,18 @@
+# Environment Variables Template
+# Copy this file to .env and fill in your API keys
+
+# FRED (Federal Reserve Economic Data) API Key
+# Get free key from: https://fred.stlouisfed.org/docs/api/api_key.html
+FRED_API_KEY=6c7e19e18a40437c8f080530c399c637
+
+# On-chain data (NOT NEEDED - using CoinMetrics free API + calculated proxies)
+# GLASSNODE_API_KEY=not_needed
+# CRYPTOQUANT_API_KEY=not_needed
+
+# Binance Testnet (Optional)
+BINANCE_TESTNET_API_KEY=DtOsTxRxyj9zwS7XfAW1nT3GK382cnVeqJDztRvmJIiaweChMs1Aqag1h4EMCxGU
+BINANCE_TESTNET_API_SECRET=ObrTdaO9tZ3nPTj1RjBlcsGsGY4h5YNjsHgwb8PgU0lyHcHv9FZcOKLZRdlVIuLK
+
+# MLflow Tracking (Optional - for remote server)
+# MLFLOW_TRACKING_URI=http://localhost:5000
+

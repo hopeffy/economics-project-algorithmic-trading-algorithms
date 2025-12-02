@@ -1,0 +1,171 @@
+# Configuration for Algorithmic Trading System
+
+# Data Sources
+data:
+  binance:
+    pairs: ['BTC/USDT', 'ETH/USDT']
+    timeframes: ['1h', '4h', '1d']
+    start_date: '2022-01-01'
+  
+  onchain:
+    enabled: true
+    sources:
+      - coinmetrics  # FREE Community API, no key required
+      - calculated_proxies  # Fallback: calculate from price/volume data
+    metrics:
+      - NVT
+      - MVRV
+      - exchange_flows
+      - hodl_waves
+  
+  macro:
+    enabled: true
+    fred_api_key: null  # Set via environment variable FRED_API_KEY
+    indicators:
+      - DXY
+      - US10Y
+      - CPI
+      - PCE
+      - UNRATE  # Unemployment
+      - PAYEMS  # Non-farm payrolls
+      - FEDFUNDS  # Federal funds rate
+  
+  storage:
+    data_dir: 'data'
+    cache_enabled: true
+
+# Backtest Settings
+backtest:
+  initial_capital: 10000
+  
+  costs:
+    maker_fee: 0.001  # 0.1%
+    taker_fee: 0.001  # 0.1%
+    slippage: 0.0005  # 0.05%
+    funding_rate: 0.0001  # 0.01% per 8h for perpetuals
+  
+  risk_management:
+    stop_loss:
+      enabled: true
+      default_pct: 0.02  # 2%
+      atr_multiplier: 2.0
+    take_profit:
+      enabled: true
+      default_pct: 0.04  # 4%
+      risk_reward_ratio: 2.0
+    trailing_stop:
+      enabled: true
+      activation_pct: 0.015  # 1.5%
+      trail_pct: 0.01  # 1%
+    position_sizing:
+      method: 'volatility'  # 'fixed', 'kelly', 'volatility'
+      max_position_size: 0.95  # 95% of capital
+      volatility_target: 0.02  # 2% daily volatility target
+      kelly_fraction: 0.25  # Use 25% of Kelly
+
+# Strategy Configuration
+strategies:
+  tc1_grid_search:
+    enforce_profitable_exit: false  # Changed from true for realism
+    use_macro_filter: true
+    use_onchain_filter: true
+  
+  tc2_ichimoku:
+    enforce_profitable_exit: false
+    use_macro_filter: true
+    use_onchain_filter: true
+    chikou_enabled: true
+    market_structure_labels: true
+  
+  ensemble:
+    enabled: true
+    weights:
+      technical: 0.5
+      onchain: 0.3
+      macro: 0.2
+    min_agreement: 2  # Minimum number of signals agreeing
+
+# Validation Settings
+validation:
+  walk_forward:
+    enabled: true
+    train_period_months: 12
+    test_period_months: 3
+    step_months: 3
+  
+  cross_validation:
+    method: 'purged_kfold'
+    n_splits: 5
+    embargo_td: '30D'  # 30 days embargo between splits
+  
+  bias_checks:
+    look_ahead: true
+    future_leak: true
+    survivorship: true
+
+# Performance Metrics
+metrics:
+  risk_adjusted:
+    - sharpe_ratio
+    - sortino_ratio
+    - calmar_ratio
+  
+  drawdown:
+    - max_drawdown
+    - max_drawdown_duration
+    - recovery_time
+  
+  profitability:
+    - total_return
+    - cagr
+    - profit_factor
+    - expectancy
+  
+  trade_analytics:
+    - win_rate
+    - avg_win
+    - avg_loss
+    - best_trade
+    - worst_trade
+    - avg_trade_duration
+    - market_exposure_pct
+
+# Experiment Tracking
+experiment:
+  tracking_uri: 'file:./mlruns'
+  experiment_name: 'algorithmic_trading'
+  auto_log: true
+  log_artifacts: true
+
+# Reporting
+report:
+  output_dir: 'reports'
+  formats: ['pdf', 'html']
+  include_sections:
+    - executive_summary
+    - methodology
+    - data_analysis
+    - backtest_results
+    - forward_test
+    - december_predictions
+    - risk_analysis
+    - recommendations
+  
+  december_2025:
+    prediction_enabled: true
+    confidence_intervals: [0.68, 0.95]  # 1σ and 2σ
+    comparison_charts: true
+
+# Binance Testnet (Optional)
+testnet:
+  enabled: false
+  api_key: null  # Set via environment
+  api_secret: null  # Set via environment
+  stream_realtime: false
+
+# Logging
+logging:
+  level: 'INFO'
+  file: 'trading_system.log'
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+

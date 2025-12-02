@@ -1,0 +1,5 @@
+Symbol_TF,TC1_Strategy,TC1_PnL%,TC1_WinRate%,TC1_Trades,TC2_Strategy,TC2_PnL%,TC2_WinRate%,TC2_Trades,Winner,PnL_Difference
+BTCUSDT_1d,TC1_RSI_BB,-10.97,0.0,1,Ichimoku+MS,0.0,0.0,0,TC2,-10.97
+ETHUSDT_1d,TC1_RSI_BB,-7.79,0.0,1,Ichimoku+MS,0.0,0.0,0,TC2,-7.79
+BTCUSDT_4h,TC1_RSI_BB,-3.42,25.0,4,Ichimoku+MS,0.58,50.0,2,TC2,-4.0
+ETHUSDT_4h,TC1_RSI_BB,6.94,100.0,1,Ichimoku+MS,1.43,100.0,1,TC1,5.51
